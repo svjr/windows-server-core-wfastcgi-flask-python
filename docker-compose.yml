@@ -1,0 +1,18 @@
+version: '3.7'
+services:
+    windows-server-core-wfastcgi-flask-python:
+        container_name: windows-server-core-wfastcgi-flask-python
+        build:
+            dockerfile: docker/windows-server-core-wfastcgi-flask-python.dockerfile
+            context: ./
+        image: windows-server-core-wfastcgi-flask-python
+        volumes:
+            - C:\app_teste:c:\app_teste
+        ports:
+            - "0.0.0.0:8001:80"
+        networks:
+            - app-network-nat
+networks:
+    app-network-nat:
+        name: app-network-nat
+        driver: nat
