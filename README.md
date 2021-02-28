@@ -1,4 +1,4 @@
-# Python + Flask + wfastcgi + Anaconda + IIS + Swagger
+# Python + Flask + wfastcgi + MiniConda + IIS + Swagger
 
 ![conda](https://docs.conda.io/en/latest/_images/conda_logo.svg)
 
