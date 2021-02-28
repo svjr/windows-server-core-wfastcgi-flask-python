@@ -1,5 +1,7 @@
 # Python + Flask + wfastcgi + IIS + Swagger
 
+![conda](https://docs.conda.io/en/latest/_images/conda_logo.svg)
+
 Aplicação em python de exemplo rodando em um contêiner Docker configurado sob o IIS por meio  Wfastcgi.
 
 Aplicação conta com a geração de log e a disponibilização de um serviço a fim de verificar o status do aplicativo.
