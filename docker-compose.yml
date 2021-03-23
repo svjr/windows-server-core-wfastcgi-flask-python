@@ -1,18 +1,21 @@
 version: '3.7'
 services:
-    windows-server-core-wfastcgi-flask-python:
-        container_name: windows-server-core-wfastcgi-flask-python
+    app_base:
+        container_name: app_base
         build:
-            dockerfile: docker/windows-server-core-wfastcgi-flask-python.dockerfile
+            dockerfile: docker/app/app.dockerfile
             context: ./
-        image: windows-server-core-wfastcgi-flask-python
+        image: app_base
+        restart: always
         volumes:
-            - C:\app_teste:c:\app_teste
+            - D:\Dados\Docker\app_base:c:\app_base
         ports:
-            - "0.0.0.0:8001:80"
+            - "0.0.0.0:8000:80"
         networks:
-            - app-network-nat
+            - default
+        cpus: 4
+        mem_limit: 2048M
 networks:
-    app-network-nat:
-        name: app-network-nat
-        driver: nat
+  default:
+    external:
+      name: nat
