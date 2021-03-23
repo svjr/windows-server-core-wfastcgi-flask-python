@@ -13,7 +13,7 @@ services:
             - "0.0.0.0:8000:80"
         networks:
             - default
-        cpus: 4
+        cpus: 2
         mem_limit: 2048M
 networks:
   default:

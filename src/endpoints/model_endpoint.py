@@ -29,3 +29,22 @@ class Model(Resource):
             logger.error(traceback.format_exc())
             msg_err = str(ex).replace("'", '"')
             return {'is_ok': 'false', 'result': str(msg_err)}
+            
+            
+@ns_model.route('/listmodels')
+class ModelList(Resource):
+    def get(self):
+        """Recupera lista de todos os modelos disponíveis na pasta da aplicação"""
+        try:
+            logger.info("Inicio do metodo [ModelList] [GET]....")
+            folder = configuracao_app.modelo_configuracao.path_generated
+            if not os.path.exists(folder):
+                return {"result": "Diretório " + folder + " não existe."}
+            else:
+                files = [file_json for file_json in os.listdir(folder) if (file_json.endswith('.joblib') or
+                                                                           file_json.endswith('.pckl'))]
+                logger.info("Quantidade de arquivos: " + str(len(files)))
+                return {"modelos": files}
+        except Exception as err:
+            logger.error(traceback.format_exc())
+            return {"result": str(err)}

@@ -18,6 +18,11 @@ def __create_directory():
         if not os.path.exists(path_app_data): os.makedirs(path_app_data)
         if not os.path.exists(path_app_data_successful): os.makedirs(path_app_data_successful)
         if not os.path.exists(path_app_data_unsuccessful): os.makedirs(path_app_data_unsuccessful)
+        # Included models directory
+        if not os.path.exists(path_app_model): os.makedirs(path_app_model)
+        if not os.path.exists(path_app_model_uploaded): os.makedirs(path_app_model_uploaded)
+        if not os.path.exists(path_app_model_generated): os.makedirs(path_app_model_generated)
+
     except Exception as ex:
         print('Erro ao realizar criação dos diretórios. Erro: %s' % (str(ex)))
 

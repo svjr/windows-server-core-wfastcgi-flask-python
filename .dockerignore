@@ -2,6 +2,7 @@
 .idea/
 .git*/
 __pycache__/
+_dev/
 *.gitignore
 docker-compose.yml
 *.dockerignore
