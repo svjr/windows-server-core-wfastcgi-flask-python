@@ -25,6 +25,7 @@ def exec_auth():
     logger.info("Inicio do metodo [auth]")
     auth = request.authorization
     if not auth or not auth.username or not auth.password:  raise Exception("WWW-Authenticate': 'Basic auth=Login required")
+    logger.info("====> Password Hash: " + generate_password_hash(auth.password))
     if auth.username != configuration.configuration_app.username:  raise Exception("Usuário incorreto")
     if check_password_hash(configuration.configuration_app.password, auth.password):
         exp_time = datetime.datetime.now() + datetime.timedelta(hours=12)
