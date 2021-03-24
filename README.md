@@ -7,10 +7,10 @@ Aplicação conta com a geração de log e a disponibilização de um serviço a
 A aplicação conta também com o uso do Swagger a fim de dispobilizar informações (documentação) das APIs REST da aplicação.
 
 # Pré-requisitos da máquina de desenvolvimento
-	
-	Windows 10 Pro/Enterprise (Home Edition não suportado pela Microsoft) ou Windows Server 2019 Version 1803
-	Instalação do Docker conforme procedimento microsoft
-		https://docs.microsoft.com/en-us/virtualization/windowscontainers/quick-start/set-up-environment?tabs=Windows-10
+
+- Windows 10 Pro/Enterprise (Home Edition não suportado pela Microsoft) ou Windows Server 2019 Version 1803
+- Instalação do Docker conforme procedimento microsoft
+https://docs.microsoft.com/en-us/virtualization/windowscontainers/quick-start/set-up-environment?tabs=Windows-10
 	
 
 # Criação da Imagem Docker
