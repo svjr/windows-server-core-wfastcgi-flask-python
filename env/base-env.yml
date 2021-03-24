@@ -1,13 +1,13 @@
 name: base
 channels:
-  - conda-forge
   - defaults
+  - conda-forge
 dependencies:
   - absl-py=0.12.0
   - aniso8601=9.0.0
   - astor=0.8.1
   - attrs=20.3.0
-  - ca-certificates=2020.12.5
+  - ca-certificates=2021.1.19
   - cached-property=1.5.2
   - cached_property=1.5.2
   - certifi=2020.12.5
@@ -66,6 +66,7 @@ dependencies:
   - pillow=8.1.2
   - pip=21.0.1
   - protobuf=3.15.6
+  - psutil=5.8.0
   - pyjwt=2.0.1
   - pymssql=2.1.5
   - pyparsing=2.4.7

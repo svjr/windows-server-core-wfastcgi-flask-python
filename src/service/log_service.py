@@ -1,7 +1,7 @@
 import os
 
 from src.common.app_common import path_app_log
-from src.config.log_config import logger
+from src.config.init_config import logger
 
 
 class LogService:

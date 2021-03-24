@@ -1,7 +1,7 @@
 import psutil
 import time
 
-from src.config.log_config import logger
+from src.config.init_config import logger
 from src.config.config import configuration
 
 

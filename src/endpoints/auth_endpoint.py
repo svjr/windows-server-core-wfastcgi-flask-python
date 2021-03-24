@@ -3,7 +3,7 @@ import traceback
 from flask import jsonify
 
 from src.restplus import api
-from src.config.log_config  import logger
+from src.config.init_config  import logger
 from flask_restplus import Resource
 from src.helper.auth_helper import exec_auth
 

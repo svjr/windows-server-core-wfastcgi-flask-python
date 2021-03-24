@@ -3,7 +3,7 @@ from flask import request, jsonify
 from werkzeug.security import check_password_hash, generate_password_hash
 
 from src.config.config import configuration
-from src.config.log_config import logger
+from src.config.init_config import logger
 from functools import wraps
 import jwt
 

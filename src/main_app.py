@@ -4,16 +4,19 @@ import threading
 from flask import Flask, Blueprint
 import werkzeug
 
+from src.common.app_common import path_app_model_uploaded
+
+werkzeug.cached_property = werkzeug.utils.cached_property
 from src.config.config import configuration
 from src.monitor.monitor_memory import memory_monitor
 
-werkzeug.cached_property = werkzeug.utils.cached_property
+
 from src.restplus import api
 from src.endpoints.log_endpoint import ns_log
 from src.endpoints.status_endpoint import ns_status
 from src.endpoints.model_endpoint import ns_model
 from src.endpoints.auth_endpoint import ns_auth
-from src.config.log_config import logger
+from src.config.init_config import logger
 
 ##################################################################
 # Inicialização
@@ -26,6 +29,7 @@ app = Flask(__name__)
 def startup():
     max_mb_upload = configuration.configuration_app.max_mb_file_upload * 1024 * 1024
     app.config['ERROR_404_HELP'] = False
+    app.config['UPLOAD_FOLDER'] = path_app_model_uploaded
     app.config['RESTPLUS_VALIDATE'] = True
     app.config['MAX_CONTENT_LENGTH'] = max_mb_upload
     blueprint = Blueprint('api', __name__)

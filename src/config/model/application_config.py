@@ -1,12 +1,20 @@
 class ApplicationConfiguration:
 
-    def __init__(self, token_secret=None, max_mb_file_upload=100, refresh_time_monitor=120, username=None,
-                 password=None):
+    def __init__(self,
+                 token_secret=None,
+                 max_mb_file_upload=100,
+                 refresh_time_monitor=120,
+                 username=None,
+                 password=None,
+                 name_file_symbol=None,
+                 path_file_symbol=None):
         self.__token_secret = token_secret
         self.__max_mb_file_upload = max_mb_file_upload
         self.__refresh_time_monitor = refresh_time_monitor
         self.__username = username
         self.__password = password
+        self.__name_file_symbol = name_file_symbol
+        self.__path_file_symbol = path_file_symbol
 
     def configure_build(self, cfg):
         self.__token_secret = cfg["app"]["token_secret"]
@@ -14,6 +22,8 @@ class ApplicationConfiguration:
         self.__refresh_time_monitor = cfg["app"]["refresh_time_monitor"]
         self.__username = cfg["app"]["username"]
         self.__password = cfg["app"]["password"]
+        self.__name_file_symbol = cfg["app"]["name_file_symbol"]
+        self.__path_file_symbol = cfg["app"]["path_file_symbol"]
 
     @property
     def token_secret(self):
@@ -54,3 +64,19 @@ class ApplicationConfiguration:
     @password.setter
     def password(self, password):
         self.__password = password
+
+    @property
+    def name_file_symbol(self):
+        return self.__name_file_symbol
+
+    @name_file_symbol.setter
+    def name_file_symbol(self, name_file_symbol):
+        self.__name_file_symbol = name_file_symbol
+
+    @property
+    def path_file_symbol(self):
+        return self.__path_file_symbol
+
+    @path_file_symbol.setter
+    def path_file_symbol(self, path_file_symbol):
+        self.__path_file_symbol = path_file_symbol

@@ -1,7 +1,9 @@
 import logging
 import os
 from logging import config as logging_config
-from src.common.app_common import path_app_conf, path_app_log, path_app_data
+from src.common.app_common import path_app_conf, path_app_log
+from src.common.app_common import path_app_data, path_app_model
+from src.common.app_common import path_app_model_uploaded, path_app_model_generated
 from src.common.app_common import path_app_data_successful, path_app_data_unsuccessful
 
 

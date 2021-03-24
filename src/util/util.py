@@ -1,10 +1,11 @@
+import json
 import os
 from datetime import datetime
-
+import numpy as np
 from werkzeug.utils import secure_filename
 
 from src.common.app_common import path_app_data_unsuccessful
-from src.config.log_config import logger
+from src.config.init_config import logger
 
 allowed_extensions = {'csv', 'CSV'}
 
@@ -57,14 +58,37 @@ def rename_columns_dataframe(strSearch, strNew, df):
     return df
 
 
-def save_file_csv_from_request(request,
+def save_file_model_from_request(request_received, field_request=None, path_folder_upload=None):
+    logger.info("Inicio do método [salvar_arquivo_modelo_from_request]")
+
+    if path_folder_upload is None:  raise Exception("Parâmetro [path_folder_upload] é None.")
+    if field_request is None: raise Exception("Parâmetro [field_request] é None.")
+    logger.info("===> " + str(request_received.files))
+    if field_request not in request_received.files: raise Exception("O campo [" + field_request + "] NÃO está presente na requisição.....")
+    file = request_received.files[field_request]
+    if file.filename == '' or file.filename is None: raise Exception("Nenhum arquivo foi enviado na requisição...")
+
+    filename = secure_filename(file.filename)
+    arquivo_modelo = os.path.join(path_folder_upload, filename)
+
+    if os.path.isfile(arquivo_modelo): raise Exception("Arquivo já existe na pasta de uploaded...")
+
+    file.save(arquivo_modelo)
+    file_name = file.filename.rsplit('.', 1)[0]
+    file_type = file.filename.rsplit('.', 1)[1]
+    logger.info("    Nome Arquivo: [" + file_name + "]")
+    logger.info("Extensão Arquivo: [" + file_type + "]")
+    return file.filename
+
+
+def save_file_csv_from_request(request_received,
                                field_request,
                                path_folder,
                                discard_files_existing=True):
     logger.info("Inicio do método [salvar_arquivo_csv_from_request]")
-    file = request.files[field_request]
+    file = request_received.files[field_request]
 
-    if field_request not in request.files:
+    if field_request not in request_received.files:
         raise Exception("O campo [" + field_request + "] NÃO está presente na requisição.....")
     if file.filename == '' or file.filename is None:
         raise Exception("Nenhum arquivo foi enviado na requisição...")
@@ -90,3 +114,13 @@ def save_file_csv_from_request(request,
     logger.info("    Nome Arquivo: [" + file_name + "]")
     logger.info("Extensão Arquivo: [" + file_type + "]")
     return filename_path
+
+
+def create_syslink(path_syslink, path_file_target):
+    logger.info("Inicio do metodo [deploy_model_generated]")
+    if os.path.isfile(path_syslink):
+        logger.info("Excluindo arquivo [" + path_syslink + "]")
+        os.remove(path_syslink)
+    logger.info("SYSLINK a ser criado [" + path_syslink + "]")
+    logger.info("Criando SYSLINK do arquivo [" + path_file_target + "]")
+    os.symlink(path_file_target, path_syslink)
