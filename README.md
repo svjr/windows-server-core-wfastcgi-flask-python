@@ -1,11 +1,17 @@
 # Python + Flask + wfastcgi + MiniConda + IIS + Swagger
 ![logo do projeto](docs/logo.png)
-Aplicação em python de exemplo rodando em um contêiner Docker configurado sob o IIS por meio  Wfastcgi.
+Aplicação em python de exemplo rodando em um contêiner Docker configurado sob o IIS por meio  WFastCGI.
 
-Aplicação conta com a geração de log e a disponibilização de um serviço a fim de verificar o status do aplicativo.
+Aplicação conta com a geração de log e a disponibilização de um serviço a fim de verificar o status do aplicativo e todas as configurações do IIS/AppPool para rodar modelos analíticos com bibliotecas suportados pelo Python/Conda/PIP/R.
 
-A aplicação conta também com o uso do Swagger a fim de dispobilizar informações (documentação) das APIs da aplicação.
+A aplicação conta também com o uso do Swagger a fim de dispobilizar informações (documentação) das APIs REST da aplicação.
 
+# Pré-requisitos da máquina de desenvolvimento
+	
+	Windows 10 Pro/Enterprise (Home Edition não suportado pela Microsoft) ou Windows Server 2019 Version 1803
+	Instalação do Docker conforme procedimento microsoft
+		https://docs.microsoft.com/en-us/virtualization/windowscontainers/quick-start/set-up-environment?tabs=Windows-10
+	
 
 # Criação da Imagem Docker
 
