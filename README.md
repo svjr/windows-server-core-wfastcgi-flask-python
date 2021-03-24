@@ -48,7 +48,8 @@ A aplicação possui um usuário padrão que está configurado no arquivo *confi
 	username: "app_base"
 	password: "pbkdf2:sha256:150000$qLh9iIwH$af3b414d34cf000833d1a4ec734df055a4961d8ca90e63ad2e170bd388183134"
 	
-	***password plain: (P@ssw0rd) (no arquivo ele está criptografado com sha256 segundo API PyJWT)***
+	***password plain: (P@ssw0rd)***
+	***(no arquivo ele está criptografado com sha256 segundo API PyJWT)***
 
 ***É altamente recomendável a troca deste password, e configuração de uma nova hash segundo API PyJWT***
 
