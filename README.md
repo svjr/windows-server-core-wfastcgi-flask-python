@@ -40,4 +40,14 @@ Com o container em execução, acesse o seguinte endereço:
 Com o container em execução, acesse o seguinte endereço:
 
     http://<localhost>:8000/app/status
-    
+	
+# Usuários e Senhas padrão e tokens de acesso
+
+A aplicação por padrão está configurada no arquivo de configuração *config.yaml* conforme abaixo:
+
+	User: app_base
+	Password: (P@ssw0rd)
+
+***É altamente recomendável a troca deste password, e configuração de uma nova hash segundo API PyJWT***
+
+Para utilização de algumas APIs REST a geração de um token é necessário (como API de */deploy*). O token possui uma validade, e após expiração um novo token deve ser gerado.
