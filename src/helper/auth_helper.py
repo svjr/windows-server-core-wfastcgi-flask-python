@@ -30,6 +30,6 @@ def exec_auth():
     if check_password_hash(configuration.configuration_app.password, auth.password):
         exp_time = datetime.datetime.now() + datetime.timedelta(hours=12)
         token = jwt.encode({'username': configuration.configuration_app.username, 'exp': exp_time},configuration.configuration_app.token_secret)
-        return {'message': 'Login realizado com sucesso', 'token': token.decode('UTF-8'), 'exp': exp_time}
+        return {'message': 'Login realizado com sucesso', 'token': token, 'exp': exp_time}
     else:
         raise Exception("Senha Incorreta")
