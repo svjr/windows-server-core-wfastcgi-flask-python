@@ -9,7 +9,7 @@ A aplicação conta também com o uso do Swagger a fim de dispobilizar informaç
 # Pré-requisitos da máquina de desenvolvimento
 
 - Windows 10 Pro/Enterprise (Home Edition não suportado pela Microsoft) ou Windows Server 2019 Version 1803
-- Instalação do Docker EE/Docker Desktop conforme procedimento microsoft (https://docs.microsoft.com/en-us/virtualization/windowscontainers/quick-start/set-up-environment?tabs=Windows-10)
+- Instalação do Docker EE/Docker Desktop conforme procedimento Microsoft (https://docs.microsoft.com/en-us/virtualization/windowscontainers/quick-start/set-up-environment?tabs=Windows-10)
 - Instalação do Docker Compose (somente para Windows Server) (https://docs.docker.com/compose/install/)
 - Mudando o Docker para "Windows Container" (Docker Desktop)
 - Instalação do Github e baixar o projeto (https://desktop.github.com/)
