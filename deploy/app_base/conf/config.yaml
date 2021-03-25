@@ -1,0 +1,8 @@
+app:
+  token_secret: "QHJjZWwwck1pdHRAbFR1YmFyQDA="
+  username: "app_base"
+  password: "pbkdf2:sha256:150000$qLh9iIwH$af3b414d34cf000833d1a4ec734df055a4961d8ca90e63ad2e170bd388183134"
+  max_mb_file_upload: 200
+  refresh_time_monitor: 120
+  name_file_symbol: "model.joblib"
+  path_file_symbol: "c:/model_link"

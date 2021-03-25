@@ -1,0 +1,9 @@
+# Lista de arquivos e pastas que não devem ser incluídos na imagem Docker da aplicação
+.idea/
+.git*/
+__pycache__/
+_dev/
+*.gitignore
+docker-compose.yml
+*.dockerignore
+*.md
