@@ -1,1 +1,0 @@
-Processo base de modelo para requisições e execuções de modelos analíticos
