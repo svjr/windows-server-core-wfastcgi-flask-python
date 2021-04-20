@@ -24,7 +24,10 @@ LABEL key="APP BASE"
 #																						   
 ############################################################################################
 ADD ./env/base-env.yml /inetpub/wwwroot
-RUN conda env update -f c:\inetpub\wwwroot\base-env.yml
+RUN powershell -Command \
+	Invoke-Command -ScriptBlock {conda clean --all --yes};\
+	Invoke-Command -ScriptBlock {conda env update -f c:\inetpub\wwwroot\base-env.yml --prune};\
+	Invoke-Command -ScriptBlock {conda clean --all --yes}
 ############################################################################################
 # Adiciona o arquivo de polyces do windows
 ############################################################################################
